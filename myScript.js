@@ -1,24 +1,42 @@
-var win = document.getElementById("popUp");
+var modal = document.getElementById("modal");
 
-var closeWin = document.getElementById("close_popUp");
+var closeModal = document.getElementById("close_modal");
 
-var winText = document.getElementById("popUp_text");
+var modalText = document.getElementById("modal_text");
 
+//countdown from n seconds
+function countFrom(start, timerId){
 
-window.onload = function () {
-    setTimeout(function () {
-        win.style.display = "none";
-    }, 10000);
+    var seconds = start-1;
+
+    var x = setInterval(function() {
+        console.log(seconds);
+        document.getElementById(timerId).innerHTML = seconds + " sec";
+        seconds = seconds - 1;
+
+        //If the count down is finished activate closing button
+        if (seconds < 0) {
+            clearInterval(x);
+            closeModal.style.backgroundColor = "#df4a16";
+            closeModal.style.color = "#000";
+            document.getElementById(timerId).innerHTML = "FERMER";
+            // When the user clicks on closing button, close the modal
+            closeModal.onclick = function () {
+            modal.style.display = "none";
+            }
+        }
+    }, 1000);
+
 }
 
-// When the user clicks on <span> (x), close the modal
-closeWin.onclick = function () {
-    win.style.display = "none";
+//countdown for closing modal after 10 sec
 
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == win) {
-        win.style.display = "none";
-    }
-}
+// window.onload = function () {
+//     setTimeout(function () {
+//         modal.style.display = "none";
+//     }, 10000);
+// }
+
+// Countdown fom 10 sec to give permission to close modal
+
+countFrom(10,"timer");

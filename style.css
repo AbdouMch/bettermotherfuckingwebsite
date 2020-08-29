@@ -12,7 +12,7 @@ h1,h2,h3
 {
     line-height: 1.2
 }
-#popUp{
+#modal{
     font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     width: 100%;
@@ -26,46 +26,77 @@ h1,h2,h3
     align-items: center;
     padding: 0 0;
 }
-#popUp_content{
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    border-radius: 10px;
-    box-shadow: 5px 5px 2px #444;
+#modal_content{
+    height: auto;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
     background-color: rgb(245, 237, 237);
     margin: auto;
-    padding: 10px 10px 0 10px;
+    padding: 10px 10px 20px 10px;
+
+    /*animate the modal for a dropdown animation*/
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s
 }
-#close_popUp{
-    float: right;
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #444;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: #df4a16;
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-400px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-400px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+#modal_content p{
+    font-size: 1.3em;
+}
+#modal_footer
+{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0;
-
-}
-#close_popUp:hover,
-#close_popUp:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#popUp a{
-    text-decoration: none;
-    color: white;
     height: 30px;
-    background-color: #444;
-    border: #444;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px #444;
-    padding: 5px 5px;
+    justify-content: space-around;
+    align-items: center;
+    padding:0;
+    font-size: 1em;
+}
+#close_modal{
+    color: #444;
+    width: 66px;
+    border-radius: 3px;
+    background-color: #df4c1665;
+    border: 1px solid #572817;
+    padding: 5px;
+    margin-right: 20px;
+}
 
+#close_modal:hover,
+#close_modal:focus {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+}
+
+#modal_footer a{
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    color: white;
+    background-color: rgb(88, 86, 86);
+    border: rgb(44, 43, 43);
+    border-radius: 3px;
+    padding: 6px 5px;
+    margin-left: 20px;
+}
+
+#modal_footer a:hover,
+#modal_footer a:focus {
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4), 0 3px 10px 0 rgba(0, 0, 0, 0.39);
 }
